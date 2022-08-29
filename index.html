@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./main.js"></script>
   </head>
   
   <body>
-  
+    <div class="header">
+      <h1>My Library</h1>
+      <p>This will be a description of the library project...</p>
+    </div>
+
+    <button onclick="toggleFormDisplay()">+ Add book</button>
+
+    <form action="" method="GET" id="myForm" class="hidden">
+      <div class="header">
+        <h2>Add a New Book</h2>
+      </div>
+      <div class="title">
+        <input type="text" name="title" id="title" placeholder="Title">
+      </div>
+      <div class="author">
+        <input type="text" name="author" id="author" placeholder="Author">
+      </div>
+      <div class="pages">
+        <input type="number"  name="pages" id="pages" placeholder="Pages">
+      </div>
+      <div class="status">
+        <p>Have you read it yet?</p>
+      	<input type="checkbox" name="status" id="status">
+      </div>
+      <button type="submit" onclick="addBookToLibrary()">Submit</button>
+    </form>
+
+    <div class="cards-container">
+
+    </div>
   </body>
 </html>
