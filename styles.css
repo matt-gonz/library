@@ -34,3 +34,19 @@ button[type="submit"]{
 .hidden{
     visibility: hidden;
 }
+
+#libraryContainer{
+    display: grid;
+    grid-auto-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.book{
+    background-color: brown;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border-radius: 10px;
+    padding: 10px;
+}

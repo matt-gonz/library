@@ -1,46 +1,58 @@
 let myLibrary = [{"title":"Matthew's book", "author":"Matthew Gonzalez", "status":"false"}];
+let newBook;
 
-function Book(title, author, read) {
-  // the constructor...
-  this.title = title;
-  this.author = author;
-  this.read = read;
+class Book{
+  constructor(title, author, pages, read){
+    this.title = form.title.value;
+    this.author = form.author.value;
+    this.pages = form.pages.value;
+    this.read = form.read.checked;
+  }
 }
 
-function addBookToLibrary() {
-  // do stuff here
-  let form = document.getElementById("myForm");
-  let title = form.elements["title"].value;
-  let author = form.elements["author"].value;
-  let status = form.elements["status"].checked;
-  myLibrary.push({
-    "title":title,
-    "author":author,
-    "status":status
-  })
-  displayLibrary();
+function addBookToLibrary(e) {
+  e.preventDefault();
+  newBook = new Book(title, author, pages, read);
+  myLibrary.push(newBook);
+  renderLibrary();
 }
 
-const $title = document.querySelector("#title");
-const $author = document.querySelector("#author");
-const $status = document.querySelector("#status");
-const $tableBody = document.querySelector("#book-table-body");
+function renderLibrary(){
+  const display = document.getElementById("libraryContainer");
+  const books = document.querySelectorAll('.book');
+  books.forEach(book => display.removeChild(book));
 
-function displayLibrary(){
-    myLibrary.forEach((book) => {
-      const bookDisplay = `
-        <tr>
-          <td>${book.title}</td>
-          <td>${book.author}</td>
-          <td><button class="status-button">${book.status}</button></td>
-          <td><button class="delete">delete</button></td>
-        </tr>
-        `;
-        $tableBody.insertAdjacentHTML("afterbegin", bookDisplay);
-    });
+  for (let i=0; i < myLibrary.length; i++){
+    createBook(myLibrary[i]);
+  }
 }
 
-displayLibrary();
+function createBook(item){
+  const library = document.querySelector("#libraryContainer");
+  const bookDiv = document.createElement('div');
+  const titleDiv = document.createElement('div');
+  const authDiv = document.createElement('div');
+  const pageDiv = document.createElement('div');
+  const removeBtn = document.createElement('button');
+  const readBtn = document.createElement('button');
+
+  library.appendChild(bookDiv);
+
+  bookDiv.classList.add('book');
+  bookDiv.setAttribute('id', myLibrary.indexOf(item));
+
+  titleDiv.textContent = item.title;
+  titleDiv.classList.add('title');
+  bookDiv.appendChild(titleDiv);
+
+  authDiv.textContent = item.author;
+  authDiv.classList.add('author');
+  bookDiv.appendChild(authDiv);
+
+  pageDiv.textContent = item.pages + "pgs";
+  pageDiv.classList.add('pages');
+  bookDiv.appendChild(pageDiv);
+}
 
 function toggleFormDisplay(){
     form = document.getElementById("myForm");
