@@ -49,7 +49,7 @@ function createBook(item){
   authDiv.classList.add('author');
   bookDiv.appendChild(authDiv);
 
-  pageDiv.textContent = item.pages + "pgs";
+  pageDiv.textContent = item.pages + " pgs";
   pageDiv.classList.add('pages');
   bookDiv.appendChild(pageDiv);
 }
