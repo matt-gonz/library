@@ -1,4 +1,4 @@
-let myLibrary = [{"title":"Matthew's book", "author":"Matthew Gonzalez", "status":"false"}];
+let myLibrary = [{"title":"Matthew's book", "author":"Matthew Gonzalez", "pages":123, "read":true}];
 let newBook;
 
 class Book{
@@ -66,6 +66,7 @@ function createBook(item){
 
   removeBtn.textContent = 'Remove';
   removeBtn.setAttribute('id', 'removeBtn');
+  removeBtn.style.backgroundColor = 'rgb(225, 0, 0)';
   bookDiv.appendChild(removeBtn);
 
   readBtn.addEventListener('click', () => {
