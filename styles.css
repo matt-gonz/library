@@ -54,6 +54,7 @@ button[type="submit"]{
 
 .book{
     background-color: brown;
+    outline: 4px solid black;
     height: 200px;
     display: grid;
     align-items: center;
